@@ -16,5 +16,12 @@
 		"psr-4": {
 			"KielD01\\LaravelMaterialDashboardPro\\" : "./src/"
 		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"KielD01\\LaravelMaterialDashboardPro\\Providers\\CoreServiceProvider"
+			]
+		}
 	}
 }

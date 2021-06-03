@@ -20,6 +20,8 @@ return [
 		],
 	],
 	'nav_bar' => [
+		'enabled' => false,
+
 		// Panels
 		'right_panel' => false,
 		'search_panel' => false,

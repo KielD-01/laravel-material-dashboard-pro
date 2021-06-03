@@ -1,0 +1,20 @@
+{
+	"name": "kield01/laravel-material-dashboard-pro",
+	"description": "Material Dashboard PRO from Creative Tim",
+	"type": "library",
+	"authors": [
+		{
+			"name": "Roman Kozin",
+			"email": "romanko95.rk@gmail.com"
+		}
+	],
+	"require": {
+		"php": "^7.0",
+		"laravel/laravel": "^8.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"KielD01\\LaravelMaterialDashboardPro" : "./src"
+		}
+	}
+}

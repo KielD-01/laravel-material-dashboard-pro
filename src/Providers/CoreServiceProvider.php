@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace KielD01\LaravelMaterialAdminPro\Providers;
+namespace KielD01\LaravelMaterialDashboardPro\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -14,7 +14,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"KielD01\\LaravelMaterialDashboardPro" : "./src"
+			"KielD01\\LaravelMaterialDashboardPro\\" : "./src"
 		}
 	}
 }

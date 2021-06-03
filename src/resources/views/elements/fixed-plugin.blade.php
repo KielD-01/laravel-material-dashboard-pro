@@ -44,7 +44,7 @@
                 </a>
             </li>
             <li class="header-title">Images</li>
-            @foreach(config('mdp.fixed_plugins.images') as $image)
+            @foreach(config('mdp.fixed_plugin.images') as $image)
                 <li>
                     <a class="img-holder switch-trigger" href="javascript:void(0)">
                         <img src="{{ $image }}" alt="">

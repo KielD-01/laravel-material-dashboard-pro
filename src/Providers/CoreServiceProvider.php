@@ -33,7 +33,8 @@ class CoreServiceProvider extends ServiceProvider
 	{
 		$packagePublic = __DIR__.DIRECTORY_SEPARATOR.
 			'..'.DIRECTORY_SEPARATOR.
-			'public';
+			'resources'.DIRECTORY_SEPARATOR.
+			'assets';
 
 		$this->publishes(
 			[

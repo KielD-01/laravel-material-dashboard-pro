@@ -24,7 +24,8 @@ class CoreServiceProvider extends ServiceProvider
 		$this->loadViewsFrom(
 			__DIR__.DIRECTORY_SEPARATOR.
 			'..'.DIRECTORY_SEPARATOR.
-			'resources',
+			'resources'.DIRECTORY_SEPARATOR.
+			'views',
 			'mdp'
 		);
 	}

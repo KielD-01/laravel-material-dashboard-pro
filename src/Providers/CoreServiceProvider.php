@@ -31,9 +31,13 @@ class CoreServiceProvider extends ServiceProvider
 
 	public function registerPublishableAssets()
 	{
+		$packagePublic = __DIR__.DIRECTORY_SEPARATOR.
+			'..'.DIRECTORY_SEPARATOR.
+			'public';
+
 		$this->publishes(
 			[
-				__DIR__.'..'.DIRECTORY_SEPARATOR.'public' => public_path('assets/mdp'),
+				$packagePublic => public_path('assets/mdp'),
 			]
 		);
 	}

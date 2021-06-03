@@ -25,7 +25,7 @@
 <div class="wrapper ">
     @include('mdp::elements.sidebar')
     <div class="main-panel">
-        @includeIf(config('mdp.navbar.enabled', true), 'mdp::elements.nav_bar')
+        @includeWhen(config('mdp.nav_bar.enabled', true), 'mdp::elements.nav_bar')
 
         <div class="content">
             <div class="content">
@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-    @includeIf(config('mdp.fixed_plugin.enabled', false), 'mdp::elements.fixed-plugin')
+    @includeWhen(config('mdp.fixed_plugin.enabled', false), 'mdp::elements.fixed-plugin')
 </div>
 
 <script src="{{ asset('/assets/mdp/js/core/jquery.min.js') }}"></script>

@@ -29,28 +29,30 @@
                     <div class="clearfix"></div>
                 </a>
             </li>
-            <li class="adjustments-line">
-                <a href="javascript:void(0)" class="switch-trigger">
-                    <p>Sidebar Images</p>
-                    <label class="switch-mini ml-auto">
-                        <div class="togglebutton switch-sidebar-image">
-                            <label>
-                                <input type="checkbox" checked="">
-                                <span class="toggle"></span>
-                            </label>
-                        </div>
-                    </label>
-                    <div class="clearfix"></div>
-                </a>
-            </li>
-            <li class="header-title">Images</li>
-            @foreach(config('mdp.fixed_plugin.images') as $image)
-                <li>
-                    <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="{{ $image }}" alt="">
+            @if (!empty(config('mdp.fixed_plugin.images', [])))
+                <li class="adjustments-line">
+                    <a href="javascript:void(0)" class="switch-trigger">
+                        <p>Sidebar Images</p>
+                        <label class="switch-mini ml-auto">
+                            <div class="togglebutton switch-sidebar-image">
+                                <label>
+                                    <input type="checkbox" checked="">
+                                    <span class="toggle"></span>
+                                </label>
+                            </div>
+                        </label>
+                        <div class="clearfix"></div>
                     </a>
                 </li>
-            @endforeach
+                <li class="header-title">Images</li>
+                @foreach(config('mdp.fixed_plugin.images') as $image)
+                    <li>
+                        <a class="img-holder switch-trigger" href="javascript:void(0)">
+                            <img src="{{ $image }}" alt="">
+                        </a>
+                    </li>
+                @endforeach
+            @endif
         </ul>
     </div>
 </div>

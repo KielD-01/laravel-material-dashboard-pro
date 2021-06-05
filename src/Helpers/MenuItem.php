@@ -6,6 +6,7 @@ namespace KielD01\LaravelMaterialDashboardPro\Helpers;
 
 use Illuminate\Support\Collection;
 use KielD01\LaravelMaterialDashboardPro\Helpers\Icons\Icon;
+use Ramsey\Uuid\Uuid;
 
 class MenuItem
 {
@@ -14,6 +15,7 @@ class MenuItem
 	private $link;
 	private $icon;
 	private $children;
+	private $hash;
 
 	public function __construct(
 		string $title,
@@ -27,6 +29,12 @@ class MenuItem
 		$this->link = $link;
 		$this->icon = $icon;
 		$this->children = collect($children);
+		$this->hash = Uuid::fromString(md5($this->title));
+	}
+
+	public function getMenuItemHash(): string
+	{
+		return $this->hash->toString();
 	}
 
 	public function getTitle(): string
@@ -37,12 +45,20 @@ class MenuItem
 	public function getLink(): string
 	{
 		$uri = null;
-		switch ($this->menuItemLinkType) {
-			case MenuItemLinkType::ROUTE:
-				$uri = route($this->link);
+
+		switch ($this->hasChildren()) {
+			case true:
+				$uri = \sprintf('#%s', $this->getMenuItemHash());
 				break;
-			case MenuItemLinkType::URI:
-				$uri = $this->link;
+			case false:
+				switch ($this->menuItemLinkType) {
+					case MenuItemLinkType::ROUTE:
+						$uri = route($this->link);
+						break;
+					case MenuItemLinkType::URI:
+						$uri = $this->link;
+						break;
+				}
 				break;
 		}
 

@@ -3,7 +3,7 @@
 
 use KielD01\LaravelMaterialDashboardPro\Helpers\MenuItem; ?>
 
-<div class="collapse" id="{{ \Ramsey\Uuid\Uuid::fromString($item->getLink()) }}">
+<div class="collapse" id="{{ $item->getMenuItemHash() }}">
     <ul class="nav">
         @foreach($item->getChildren() as $child)
             <li class="nav-item ">

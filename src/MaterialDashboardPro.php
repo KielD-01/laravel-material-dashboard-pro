@@ -9,12 +9,27 @@ use Illuminate\Http\Request;
 class MaterialDashboardPro
 {
 	private $request;
+	private $pageTitle;
 
-	public function __construct(Request  $request) {
+	public function __construct(Request $request)
+	{
 		$this->request = $request;
 	}
 
-	public function hasUser(string $guard = null) {
+	public function hasUser(string $guard = null)
+	{
 		return $this->request->user($guard) ?? false;
+	}
+
+	public function setPageTitle(string $pageTitle): self
+	{
+		$this->pageTitle = $pageTitle;
+
+		return $this;
+	}
+
+	public function getPageTitle(): string
+	{
+		return $this->pageTitle;
 	}
 }

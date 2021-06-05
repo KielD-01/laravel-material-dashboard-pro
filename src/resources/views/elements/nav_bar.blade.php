@@ -41,7 +41,7 @@
                     </li>
                     @endif
                     @yield('mdp::nav_bar_notifications')
-                    @if(config('mdp.core.nav_bar.right_panel'))
+                    @if(config('mdp.core.nav_bar.right_panel') && $mdp->hasUser())
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="javascript:void(0)" id="navbarDropdownProfile"
                                data-toggle="dropdown"

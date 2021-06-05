@@ -63,7 +63,7 @@ class CoreServiceProvider extends ServiceProvider
 			DIRECTORY_SEPARATOR,
 			'mdp',
 			DIRECTORY_SEPARATOR,
-			'core.php'
+			'menu.php'
 		);
 
 		$this->publishes(
@@ -71,7 +71,6 @@ class CoreServiceProvider extends ServiceProvider
 				$mdpCoreConfig => config_path(
 					\sprintf(
 						'%s%s%s',
-
 						'mdp',
 						DIRECTORY_SEPARATOR,
 						'core.php'

@@ -7,11 +7,11 @@ use KielD01\LaravelMaterialDashboardPro\Helpers\MenuItem; ?>
     <ul class="nav">
         @foreach($item->getChildren() as $child)
             <li class="nav-item ">
-                <a class="nav-link" href="{{ $item->getLink() }}">
-                    {!! $item->getIcon()->buildIcon() !!}
-                    <p> {{ $item->getTitle() }} @if($item->hasChildren()) <b class="caret"></b> @endif</p>
+                <a class="nav-link" href="{{ $child->getLink() }}">
+                    {!! $child->getIcon()->buildIcon() !!}
+                    <p> {{ $child->getTitle() }} @if($child->hasChildren()) <b class="caret"></b> @endif</p>
                 </a>
-                @includeWhen($item->hasChildren(), 'mdp::elements.sidebar.children', ['item' => $item])
+                @includeWhen($child->hasChildren(), 'mdp::elements.sidebar.children', ['item' => $child])
             </li>
         @endforeach
     </ul>

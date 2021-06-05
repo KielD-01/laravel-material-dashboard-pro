@@ -48,11 +48,43 @@ class CoreServiceProvider extends ServiceProvider
 	{
 		$baseDir = __DIR__.DIRECTORY_SEPARATOR.'..';
 		$configs = \sprintf('%s%s%s', $baseDir, DIRECTORY_SEPARATOR, 'config');
-		$mdpConfig = \sprintf('%s%s%s', $configs, DIRECTORY_SEPARATOR, 'mdp.php');
+		$mdpCoreConfig = \sprintf(
+			'%s%s%s%s%s',
+			$configs,
+			DIRECTORY_SEPARATOR,
+			'mdp',
+			DIRECTORY_SEPARATOR,
+			'core.php'
+		);
+
+		$mdpMenuConfig = \sprintf(
+			'%s%s%s%s%s',
+			$configs,
+			DIRECTORY_SEPARATOR,
+			'mdp',
+			DIRECTORY_SEPARATOR,
+			'core.php'
+		);
 
 		$this->publishes(
 			[
-				$mdpConfig => config_path('mdp.php'),
+				$mdpCoreConfig => config_path(
+					\sprintf(
+						'%s%s%s',
+
+						'mdp',
+						DIRECTORY_SEPARATOR,
+						'core.php'
+					)
+				),
+				$mdpMenuConfig => config_path(
+					\sprintf(
+						'%s%s%s',
+						'mdp',
+						DIRECTORY_SEPARATOR,
+						'menu.php'
+					)
+				),
 			]
 		);
 	}

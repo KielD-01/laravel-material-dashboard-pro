@@ -69,10 +69,10 @@ class MenuItem
 
 	public function hasIcon(): bool
 	{
-		return !is_null($this->getIcon()) && $this->getIcon() instanceof Icon;
+		return !is_null($this->getIcon());
 	}
 
-	public function getIcon(): Icon
+	public function getIcon(): ?Icon
 	{
 		return $this->icon;
 	}

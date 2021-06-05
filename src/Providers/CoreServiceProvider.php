@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace KielD01\LaravelMaterialDashboardPro\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\Factory;
+use KielD01\LaravelMaterialDashboardPro\Providers\Composers\MdpViewComposer;
 
 class CoreServiceProvider extends ServiceProvider
 {
@@ -12,11 +14,12 @@ class CoreServiceProvider extends ServiceProvider
 	{
 	}
 
-	public function boot()
+	public function boot(Factory $view)
 	{
 		$this->registerPublishableConfigs();
 		$this->registerPublishableAssets();
 		$this->registerViews();
+		$this->registerViewComposers($view);
 	}
 
 	public function registerViews()
@@ -42,6 +45,11 @@ class CoreServiceProvider extends ServiceProvider
 				$packagePublic => public_path('assets/mdp'),
 			]
 		);
+	}
+
+	public function registerViewComposers(Factory $view)
+	{
+		$view->composer('mdp::layouts.main', MdpViewComposer::class);
 	}
 
 	public function registerPublishableConfigs()

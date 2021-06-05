@@ -97,9 +97,7 @@ class MenuItem
 		$words = explode(' ', $this->getTitle());
 		$abbrArray = array_map(
 			static function ($word) {
-				$e = explode('', $word);
-
-				return mb_strtoupper(current($e));
+				return mb_strtoupper($word[0]);
 			},
 			$words
 		);

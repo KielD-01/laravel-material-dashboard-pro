@@ -9,7 +9,7 @@ class MaterialIcon extends Icon
 	public function buildIcon(): string
 	{
 		return \sprintf(
-			'<i class="material-icons"><p>%s</p></i>',
+			'<i class="material-icons">%s</i>',
 			$this->getIcon()
 		);
 	}

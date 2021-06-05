@@ -6,6 +6,6 @@ namespace KielD01\LaravelMaterialDashboardPro\Helpers;
 
 final class MenuItemLinkType
 {
-	const URI = 'uri';
-	const ROUTE = 'route';
+	public const URI = 'uri';
+	public const ROUTE = 'route';
 }

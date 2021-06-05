@@ -17,7 +17,7 @@ class MdpViewComposer
 		$this->mdp = $mdp;
 	}
 
-	public function compose(View $view)
+	public function compose(View $view): void
 	{
 		$view->with('mdp', $this->mdp);
 	}

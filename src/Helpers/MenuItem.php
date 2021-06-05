@@ -92,7 +92,7 @@ class MenuItem
 		return $this->abbr;
 	}
 
-	private function setAbbr()
+	private function setAbbr(): void
 	{
 		$words = explode(' ', $this->getTitle());
 		$abbrArray = array_map(

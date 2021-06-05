@@ -10,11 +10,11 @@ use KielD01\LaravelMaterialDashboardPro\Providers\Composers\MdpViewComposer;
 
 class CoreServiceProvider extends ServiceProvider
 {
-	public function register()
+	public function register(): void
 	{
 	}
 
-	public function boot(Factory $view)
+	public function boot(Factory $view): void
 	{
 		$this->registerPublishableConfigs();
 		$this->registerPublishableAssets();
@@ -22,7 +22,7 @@ class CoreServiceProvider extends ServiceProvider
 		$this->registerViewComposers($view);
 	}
 
-	public function registerViews()
+	public function registerViews(): void
 	{
 		$this->loadViewsFrom(
 			__DIR__.DIRECTORY_SEPARATOR.
@@ -33,7 +33,7 @@ class CoreServiceProvider extends ServiceProvider
 		);
 	}
 
-	public function registerPublishableAssets()
+	public function registerPublishableAssets(): void
 	{
 		$packagePublic = __DIR__.DIRECTORY_SEPARATOR.
 			'..'.DIRECTORY_SEPARATOR.
@@ -47,12 +47,12 @@ class CoreServiceProvider extends ServiceProvider
 		);
 	}
 
-	public function registerViewComposers(Factory $view)
+	public function registerViewComposers(Factory $view): void
 	{
 		$view->composer('mdp::layouts.main', MdpViewComposer::class);
 	}
 
-	public function registerPublishableConfigs()
+	public function registerPublishableConfigs(): void
 	{
 		$baseDir = __DIR__.DIRECTORY_SEPARATOR.'..';
 		$configs = \sprintf('%s%s%s', $baseDir, DIRECTORY_SEPARATOR, 'config');

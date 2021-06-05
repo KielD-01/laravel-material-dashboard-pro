@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class MaterialDashboardPro
 {
 	private $request;
-	private $pageTitle;
+	private $pageTitle = 'Page';
 
 	public function __construct(Request $request)
 	{

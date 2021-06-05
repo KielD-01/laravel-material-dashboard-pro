@@ -58,8 +58,17 @@ use KielD01\LaravelMaterialDashboardPro\Helpers\MenuItem;
                 <li class="nav-item">
                     <a class="nav-link" href="{{ $menuItem->getLink() }}"
                        @if($menuItem->hasChildren()) data-toggle="collapse" @endif>
-                        {!! $menuItem->getIcon()->buildIcon() !!}
-                        <p> {{ $menuItem->getTitle() }} @if($menuItem->hasChildren()) <b class="caret"></b> @endif</p>
+                        @if($menuItem->hasIcon())
+                            {!! $menuItem->getIcon()->buildIcon() !!}
+                            <p> {{ $menuItem->getTitle() }} @if($menuItem->hasChildren()) <b class="caret"></b> @endif
+                            </p>
+                        @else
+                            <span class="sidebar-mini">{{ $menuItem->getAbbr() }}</span>
+                            <span class="sidebar-normal">
+                            {{ $menuItem->getTitle() }}
+                                @if($menuItem->hasChildren()) <b class="caret"></b> @endif
+                        </span>
+                        @endif
                     </a>
                     @includeWhen($menuItem->hasChildren(), 'mdp::elements.sidebar.children', ['item' => $menuItem])
                 </li>

@@ -16,12 +16,13 @@ class MenuItem
 	private $icon;
 	private $children;
 	private $hash;
+	private $abbr;
 
 	public function __construct(
 		string $title,
 		string $menuItemLinkType,
 		string $link,
-		Icon $icon,
+		Icon $icon = null,
 		array $children = []
 	) {
 		$this->title = $title;
@@ -30,6 +31,7 @@ class MenuItem
 		$this->icon = $icon;
 		$this->children = collect($children);
 		$this->hash = Uuid::fromString(md5($this->title));
+		$this->setAbbr();
 	}
 
 	public function getMenuItemHash(): string
@@ -65,6 +67,11 @@ class MenuItem
 		return $uri;
 	}
 
+	public function hasIcon(): bool
+	{
+		return !is_null($this->getIcon()) && $this->getIcon() instanceof Icon;
+	}
+
 	public function getIcon(): Icon
 	{
 		return $this->icon;
@@ -78,5 +85,25 @@ class MenuItem
 	public function getChildren(): Collection
 	{
 		return $this->children;
+	}
+
+	public function getAbbr(): string
+	{
+		return $this->abbr;
+	}
+
+	private function setAbbr()
+	{
+		$words = explode(' ', $this->getTitle());
+		$abbrArray = array_map(
+			static function ($word) {
+				$e = explode('', $word);
+
+				return mb_strtoupper(current($e));
+			},
+			$words
+		);
+
+		$this->abbr = implode('', $abbrArray);
 	}
 }

@@ -5,13 +5,13 @@ declare(strict_types=1);
 return [
 	'fixed_plugin' => [
 		'enabled' => false,
-		'images' => []
+		'images' => [],
 	],
 
 	'site' => [
 		'url' => env('APP_URL'),
-		'name' => env('APP_NAME'),
-		'abbr' => env('APP_NAME'),
+		'name' => env('APP_NAME', 'Laravel'),
+		'abbr' => env('APP_NAME', 'L'),
 	],
 
 	'sidebar' => [
@@ -27,6 +27,10 @@ return [
 		'search_panel' => false,
 		'search_url' => '#',
 
+		'dashboard' => [
+			'enabled' => false,
+			'route' => null,
+		],
 		'profile' => [
 			'enabled' => false,
 			'route' => null,

@@ -1,14 +1,14 @@
 <div class="sidebar" data-color="rose" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
-    <div class="logo"><a href="{{ config('mdp.site.url') }}" class="simple-text logo-mini">
-            {{ config('mdp.site.abbr') }}
+    <div class="logo"><a href="{{ config('mdp.core.site.url') }}" class="simple-text logo-mini">
+            {{ config('mdp.core.site.abbr') }}
         </a>
-        <a href="{{ config('mdp.site.url') }}" class="simple-text logo-normal">
-            {{ config('mdp.site.name') }}
+        <a href="{{ config('mdp.core.site.url') }}" class="simple-text logo-normal">
+            {{ config('mdp.core.site.name') }}
         </a></div>
     <div class="sidebar-wrapper">
         <div class="user">
             <div class="photo">
-                <img src="{{ $avatarUrl ?? config('mdp.sidebar.user.avatar_placeholder') }}"/>
+                <img src="{{ $avatarUrl ?? config('mdp.core.sidebar.user.avatar_placeholder') }}"/>
             </div>
             <div class="user-info">
                 <a data-toggle="collapse" href="#collapseExample" class="username">

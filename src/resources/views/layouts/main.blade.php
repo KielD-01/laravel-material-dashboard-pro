@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="/assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>
-        {{ config('mdp.site.name') }}
+        {{ config('mdp.core.site.name') }}
     </title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'/>
     <!--     Fonts and icons     -->
@@ -25,7 +25,7 @@
 <div class="wrapper ">
     @include('mdp::elements.sidebar')
     <div class="main-panel">
-        @includeWhen(config('mdp.nav_bar.enabled', true), 'mdp::elements.nav_bar')
+        @includeWhen(config('mdp.core.nav_bar.enabled', true), 'mdp::elements.nav_bar')
 
         <div class="content">
             <div class="content">
@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-    @includeWhen(config('mdp.fixed_plugin.enabled', false), 'mdp::elements.fixed-plugin')
+    @includeWhen(config('mdp.core.fixed_plugin.enabled', false), 'mdp::elements.fixed-plugin')
 </div>
 
 <script src="{{ asset('/assets/mdp/js/core/jquery.min.js') }}"></script>

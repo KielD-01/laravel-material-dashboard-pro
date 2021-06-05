@@ -29,7 +29,7 @@
                     <div class="clearfix"></div>
                 </a>
             </li>
-            @if (!empty(config('mdp.fixed_plugin.images', [])))
+            @if (!empty(config('mdp.core.fixed_plugin.images', [])))
                 <li class="adjustments-line">
                     <a href="javascript:void(0)" class="switch-trigger">
                         <p>Sidebar Images</p>
@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li class="header-title">Images</li>
-                @foreach(config('mdp.fixed_plugin.images') as $image)
+                @foreach(config('mdp.core.fixed_plugin.images') as $image)
                     <li>
                         <a class="img-holder switch-trigger" href="javascript:void(0)">
                             <img src="{{ $image }}" alt="">

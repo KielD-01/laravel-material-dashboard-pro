@@ -9,7 +9,7 @@ use KielD01\LaravelMaterialDashboardPro\MaterialDashboardPro;
 
 class MdpViewComposer
 {
-	/** @var MaterialDashboardPro  */
+	/** @var MaterialDashboardPro */
 	private $mdp;
 
 	public function __construct(MaterialDashboardPro $mdp)
@@ -19,12 +19,6 @@ class MdpViewComposer
 
 	public function compose(View $view): void
 	{
-		$mdp = collect($view->getData());
-
-		if ($mdp->has('mdp.pageTitle')) {
-			$this->mdp->setPageTitle($mdp->get('mdp.pageTitle'));
-		}
-
 		$view->with('mdp', $this->mdp);
 	}
 }

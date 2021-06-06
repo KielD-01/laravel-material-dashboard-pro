@@ -19,6 +19,12 @@ class MdpViewComposer
 
 	public function compose(View $view): void
 	{
+		$mdp = collect($view->getData());
+
+		if ($mdp->has('mdp.pageTitle')) {
+			$this->mdp->setPageTitle($mdp->get('mdp.pageTitle'));
+		}
+
 		$view->with('mdp', $this->mdp);
 	}
 }

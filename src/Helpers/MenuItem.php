@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace KielD01\LaravelMaterialDashboardPro\Helpers;
 
-use Illuminate\Routing\Route;
 use Illuminate\Support\Collection;
 use KielD01\LaravelMaterialDashboardPro\Helpers\Icons\Icon;
 use Ramsey\Uuid\Uuid;
@@ -36,10 +35,8 @@ class MenuItem
 		$this->icon = $icon;
 		$this->children = collect($children);
 		$this->hash = Uuid::fromString(md5($this->title));
-		$this->request = request();
 
 		$this->setAbbr();
-		$this->setActiveClass();
 	}
 
 	public function getMenuItemHash(): string
@@ -111,31 +108,6 @@ class MenuItem
 		);
 
 		$this->abbr = implode('', $abbrArray);
-	}
-
-	private function setActiveClass()
-	{
-		$active = false;
-		$link = $this->getLink();
-		$route = $this->request->route();
-
-		switch ($this->menuItemLinkType) {
-			case MenuItemLinkType::URI:
-				$active = \strpos(
-						$route->uri,
-						$link
-					) === 0;
-				break;
-			case MenuItemLinkType::ROUTE:
-				if ($route instanceof Route) {
-					$active = $route->getName() === $link;
-				}
-				break;
-		}
-
-		if ($active) {
-			$this->classes[] = 'active';
-		}
 	}
 
 	public function getClasses(): string

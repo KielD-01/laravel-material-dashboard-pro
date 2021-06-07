@@ -18,8 +18,8 @@ use KielD01\LaravelMaterialDashboardPro\Helpers\MenuItem;
         @includeWhen($mdp->hasUser(), 'mdp::elements.sidebar.user')
         <ul class="nav">
             @foreach(config('mdp.menu', []) as $menuItem)
-                <li class="nav-item">
-                    <a class="{{ $menuItem->getClasses() }}" href="{{ $menuItem->getLink() }}"
+                <li class="{{ $child->getClasses() }}">
+                    <a class="nav-link" href="{{ $menuItem->getLink() }}"
                        @if($menuItem->hasChildren()) data-toggle="collapse" @endif>
                         @if($menuItem->hasIcon())
                             {!! $menuItem->getIcon()->buildIcon() !!}

@@ -82,7 +82,8 @@
 @include('mdp::elements.assets.core.js')
 @section('mdp::js')
     <script>
-        $(`li.nav-item > a[href="${location.pathname}"]`)
+        let path = `${location.origin}${location.pathname}`
+        $(`a.nav-link[href*="${path}"]`)
             .parent('li')
             .addClass('active');
     </script>

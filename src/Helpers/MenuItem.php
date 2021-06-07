@@ -107,7 +107,7 @@ class MenuItem
 
 	private function setAbbr(): void
 	{
-		$words = explode(' ', $title);
+		$words = explode(' ', $this->getTitle());
 		$abbrArray = array_map(
 			static function ($word) {
 				return mb_strtoupper($word[0]);

@@ -15,7 +15,7 @@ class MenuBuilder
 		);
 	}
 
-	private static function processMenu(array $menuItems): array
+	private static function processMenu(array $menuItems, bool $isChild = false): array
 	{
 		foreach ($menuItems as $index => $menuItem) {
 			$menuItems[$index] = new MenuItem(
@@ -23,7 +23,8 @@ class MenuBuilder
 				$menuItem['link']['type'],
 				$menuItem['link'][$menuItem['link']['type']],
 				$menuItem['icon'],
-				self::processMenu($menuItem['children'] ?? [])
+				self::processMenu($menuItem['children'] ?? [], true),
+				$isChild
 			);
 		}
 

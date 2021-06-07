@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use KielD01\LaravelMaterialDashboardPro\App\Http\Controllers\TestAuthController;
+use KielD01\LaravelMaterialDashboardPro\Http\Controllers\TestAuthController;
 
 Route::name('kield01.mdp.')
 	->group(

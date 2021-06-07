@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace KielD01\LaravelMaterialDashboardPro\App\Http\Controllers;
+namespace KielD01\LaravelMaterialDashboardPro\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 

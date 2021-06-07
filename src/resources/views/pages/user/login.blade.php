@@ -1,1 +1,1 @@
-@extends('mdp::layouts.user.auth.v1')
+@extends('mdp::layouts.user.auth-v1')

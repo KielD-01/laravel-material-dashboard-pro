@@ -77,23 +77,26 @@ class MenuItem
 	{
 		/** @var Route $route */
 		$route = $this->request->route();
-		switch ($this->menuItemLinkType) {
-			case MenuItemLinkType::ROUTE:
-				if ($this->getBaseLink() === $route->getName()) {
-					$this->classes[] = 'active';
-				}
 
-				break;
-			case MenuItemLinkType::URI:
-				$match0 = mb_strpos(
-						$route->uri(),
-						$this->getBaseLink()
-					) === 0;
+		if (!is_null($route)) {
+			switch ($this->menuItemLinkType) {
+				case MenuItemLinkType::ROUTE:
+					if ($this->getBaseLink() === $route->getName()) {
+						$this->classes[] = 'active';
+					}
 
-				if ($match0) {
-					$this->classes[] = 'active';
-				}
-				break;
+					break;
+				case MenuItemLinkType::URI:
+					$match0 = mb_strpos(
+							$route->uri(),
+							$this->getBaseLink()
+						) === 0;
+
+					if ($match0) {
+						$this->classes[] = 'active';
+					}
+					break;
+			}
 		}
 	}
 

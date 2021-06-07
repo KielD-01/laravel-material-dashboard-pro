@@ -107,7 +107,6 @@ class MenuItem
 
 	private function setAbbr(): void
 	{
-		$title = preg_replace('/[^0-9A-Za-z]/', '', $this->getTitle());
 		$words = explode(' ', $title);
 		$abbrArray = array_map(
 			static function ($word) {
@@ -116,7 +115,12 @@ class MenuItem
 			$words
 		);
 
-		$this->abbr = implode('', $abbrArray);
+		$abbrString = implode('', $abbrArray);
+		$this->abbr = preg_replace(
+			'/([^0-9A-Za-z])/',
+			'',
+			$abbrString
+		);
 	}
 
 	public function getClasses(): string

@@ -21,7 +21,7 @@ class MaterialDashboardPro
 
 	public function getRandomBackgroundUrl(): string
 	{
-		return 'https://picsum.photos/2880/1920';
+		return \sprintf('https://picsum.photos/2880/1920?blur=%d', 2);
 	}
 
 	private function setMenu(): void

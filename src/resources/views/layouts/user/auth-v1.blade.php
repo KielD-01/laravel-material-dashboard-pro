@@ -17,13 +17,13 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a href="{{ route('kield01.mdp.user.register') }}" class="nav-link">
                         <i class="material-icons">person_add</i>
                         Register
                     </a>
                 </li>
-                <li class="nav-item  active ">
+                <li class="nav-item">
                     <a href="{{ route('kield01.mdp.user.login') }}" class="nav-link">
                         <i class="material-icons">fingerprint</i>
                         Login
@@ -80,6 +80,13 @@
     </div>
 </div>
 @include('mdp::elements.assets.core.js')
+@section('mdp::js')
+    <script>
+        $(`li.nav-item > a[href="${location.pathname}"]`)
+            .parent('li')
+            .addClass('active');
+    </script>
+@endsection
 </body>
 
 </html>

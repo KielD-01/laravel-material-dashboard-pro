@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace KielD01\LaravelMaterialDashboardPro\Helpers;
 
+use Illuminate\Routing\Route;
 use Illuminate\Support\Collection;
 use KielD01\LaravelMaterialDashboardPro\Helpers\Icons\Icon;
 use Ramsey\Uuid\Uuid;

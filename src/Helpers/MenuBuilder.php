@@ -4,10 +4,28 @@ declare(strict_types=1);
 
 namespace KielD01\LaravelMaterialDashboardPro\Helpers;
 
+use Illuminate\Support\Facades\Config;
+
 class MenuBuilder
 {
-	public static function build() {
-		$menuItems = collect(config('mdp.menu', []));
+	public static function build(): array
+	{
+		return self::processMenu(
+			Config::get('mdp.menu', [])
+		);
+	}
+
+	private static function processMenu(array $menuItems): array
+	{
+		foreach ($menuItems as $index => $menuItem) {
+			$menuItems[$index] = new MenuItem(
+				$menuItem['title'],
+				$menuItem['link']['type'],
+				$menuItem['link'][$menuItem['link']['type']],
+				$menuItem['icon'],
+				self::processMenu($menuItem['children'] ?? [])
+			);
+		}
 
 		return $menuItems;
 	}

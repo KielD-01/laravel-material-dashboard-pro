@@ -47,4 +47,6 @@
 
 @stack('mdp::layout_js')
 
+@yield('mdp::js')
+
 </body>

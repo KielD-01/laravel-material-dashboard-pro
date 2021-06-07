@@ -257,10 +257,6 @@ $(window).resize(function () {
 
     // reset the seq for charts drawing animations
     seq = seq2 = 0;
-
-    setTimeout(function () {
-        md.initDashboardPageCharts();
-    }, 500);
 });
 
 md = {
@@ -297,7 +293,7 @@ md = {
     },
     initSidebarsCheck: function () {
         if ($(window).width() <= 991) {
-            if ($sidebar.length != 0) {
+            if ($sidebar.length !== 0) {
                 md.initRightMenu();
             }
         }

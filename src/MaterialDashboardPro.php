@@ -19,6 +19,11 @@ class MaterialDashboardPro
 		$this->setMenu();
 	}
 
+	public function getRandomBackgroundUrl(): string
+	{
+		return 'https://picsum.photos/2880/1920';
+	}
+
 	private function setMenu(): void
 	{
 		$this->menu = MenuBuilder::build();

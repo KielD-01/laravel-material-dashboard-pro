@@ -1,4 +1,23 @@
 $(document).ready(function () {
+    $colors = JSON.parse(localStorage.getItem('colors'));
+    $defaultColors = {
+        filters: 'danger',
+        bg: 'black'
+    };
+    console.log($colors);
+    if (!$colors) {
+        localStorage.setItem('colors', JSON.stringify($defaultColors));
+    }
+
+    function storeColors() {
+        localStorage.setItem('colors', JSON.stringify($colors));
+    }
+
+    function setColors(type, color) {
+        $(`a.switch-trigger.${type} > div > span`).removeClass('active')
+        $(`a.switch-trigger.${type} > div > span.badge-${color}`).addClass('active')
+    }
+
     $().ready(function () {
         $sidebar = $('.sidebar');
         $sidebar_img_container = $sidebar.find('.sidebar-background');
@@ -6,6 +25,25 @@ $(document).ready(function () {
         $sidebar_responsive = $('body > .navbar-collapse');
         window_width = $(window).width();
         fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+        if ($sidebar.length !== 0) {
+            $sidebar.attr('data-color', $colors.filters);
+        }
+
+        if ($full_page.length !== 0) {
+            $full_page.attr('filter-color', $colors.filters);
+        }
+
+        if ($sidebar_responsive.length !== 0) {
+            $sidebar_responsive.attr('data-color', $colors.filters);
+        }
+
+        if ($sidebar.length !== 0) {
+            $sidebar.attr('data-background-color', $colors.bg);
+        }
+
+        setColors('active-color', $colors.filters);
+        setColors('background-color', $colors.bg);
 
         if (window_width > 767 && fixed_plugin_open === 'Dashboard') {
             if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
@@ -34,14 +72,20 @@ $(document).ready(function () {
 
             if ($sidebar.length !== 0) {
                 $sidebar.attr('data-color', new_color);
+                $colors.filters = $sidebar.attr('data-color');
+                storeColors();
             }
 
             if ($full_page.length !== 0) {
                 $full_page.attr('filter-color', new_color);
+                $colors.filters = $full_page.attr('data-color');
+                storeColors();
             }
 
             if ($sidebar_responsive.length !== 0) {
                 $sidebar_responsive.attr('data-color', new_color);
+                $colors.filters = $sidebar_responsive.attr('data-color');
+                storeColors();
             }
         });
 
@@ -53,6 +97,8 @@ $(document).ready(function () {
 
             if ($sidebar.length !== 0) {
                 $sidebar.attr('data-background-color', new_color);
+                $colors.bg = $sidebar.attr('data-background-color');
+                storeColors();
             }
         });
 

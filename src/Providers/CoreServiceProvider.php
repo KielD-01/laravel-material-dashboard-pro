@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace KielD01\LaravelMaterialDashboardPro\Providers;
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Factory;
 use KielD01\LaravelMaterialDashboardPro\Providers\Composers\MdpViewComposer;
@@ -22,6 +23,7 @@ class CoreServiceProvider extends ServiceProvider
 		$this->registerPublishableAssets();
 		$this->registerViews();
 		$this->registerViewComposers($view);
+		$this->registerRoutes();
 	}
 
 	public function registerPublishableConfigs(): void
@@ -96,5 +98,18 @@ class CoreServiceProvider extends ServiceProvider
 	public function registerViewComposers(Factory $view): void
 	{
 		$view->composer('mdp::layouts.main', MdpViewComposer::class);
+	}
+
+	public function registerRoutes(): void
+	{
+		if (Config::get('mdp.core.module.routes.enabled', false)) {
+			$this->loadRoutesFrom(
+				__DIR__.DIRECTORY_SEPARATOR.
+				'..'.DIRECTORY_SEPARATOR.
+				'routes'.DIRECTORY_SEPARATOR.
+				'mdp'.DIRECTORY_SEPARATOR.
+				'auth.php'
+			);
+		}
 	}
 }

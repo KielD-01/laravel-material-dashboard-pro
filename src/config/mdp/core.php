@@ -3,6 +3,11 @@
 declare(strict_types=1);
 
 return [
+	'module' => [
+		'routes' => [
+			'enabled' => false
+		]
+	],
 	'fixed_plugin' => [
 		'enabled' => false,
 		'images' => [],

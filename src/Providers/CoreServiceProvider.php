@@ -8,6 +8,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Factory;
 use KielD01\LaravelMaterialDashboardPro\Providers\Composers\MdpViewComposer;
 
+use function sprintf;
+
 class CoreServiceProvider extends ServiceProvider
 {
 	public function register(): void
@@ -22,14 +24,47 @@ class CoreServiceProvider extends ServiceProvider
 		$this->registerViewComposers($view);
 	}
 
-	public function registerViews(): void
+	public function registerPublishableConfigs(): void
 	{
-		$this->loadViewsFrom(
-			__DIR__.DIRECTORY_SEPARATOR.
-			'..'.DIRECTORY_SEPARATOR.
-			'resources'.DIRECTORY_SEPARATOR.
-			'views',
-			'mdp'
+		$baseDir = __DIR__.DIRECTORY_SEPARATOR.'..';
+		$configs = sprintf('%s%s%s', $baseDir, DIRECTORY_SEPARATOR, 'config');
+		$mdpCoreConfig = sprintf(
+			'%s%s%s%s%s',
+			$configs,
+			DIRECTORY_SEPARATOR,
+			'mdp',
+			DIRECTORY_SEPARATOR,
+			'core.php'
+		);
+
+		$mdpMenuConfig = sprintf(
+			'%s%s%s%s%s',
+			$configs,
+			DIRECTORY_SEPARATOR,
+			'mdp',
+			DIRECTORY_SEPARATOR,
+			'menu.php'
+		);
+
+		$this->publishes(
+			[
+				$mdpCoreConfig => config_path(
+					sprintf(
+						'%s%s%s',
+						'mdp',
+						DIRECTORY_SEPARATOR,
+						'core.php'
+					)
+				),
+				$mdpMenuConfig => config_path(
+					sprintf(
+						'%s%s%s',
+						'mdp',
+						DIRECTORY_SEPARATOR,
+						'menu.php'
+					)
+				),
+			]
 		);
 	}
 
@@ -47,52 +82,19 @@ class CoreServiceProvider extends ServiceProvider
 		);
 	}
 
+	public function registerViews(): void
+	{
+		$this->loadViewsFrom(
+			__DIR__.DIRECTORY_SEPARATOR.
+			'..'.DIRECTORY_SEPARATOR.
+			'resources'.DIRECTORY_SEPARATOR.
+			'views',
+			'mdp'
+		);
+	}
+
 	public function registerViewComposers(Factory $view): void
 	{
 		$view->composer('mdp::layouts.main', MdpViewComposer::class);
-	}
-
-	public function registerPublishableConfigs(): void
-	{
-		$baseDir = __DIR__.DIRECTORY_SEPARATOR.'..';
-		$configs = \sprintf('%s%s%s', $baseDir, DIRECTORY_SEPARATOR, 'config');
-		$mdpCoreConfig = \sprintf(
-			'%s%s%s%s%s',
-			$configs,
-			DIRECTORY_SEPARATOR,
-			'mdp',
-			DIRECTORY_SEPARATOR,
-			'core.php'
-		);
-
-		$mdpMenuConfig = \sprintf(
-			'%s%s%s%s%s',
-			$configs,
-			DIRECTORY_SEPARATOR,
-			'mdp',
-			DIRECTORY_SEPARATOR,
-			'menu.php'
-		);
-
-		$this->publishes(
-			[
-				$mdpCoreConfig => config_path(
-					\sprintf(
-						'%s%s%s',
-						'mdp',
-						DIRECTORY_SEPARATOR,
-						'core.php'
-					)
-				),
-				$mdpMenuConfig => config_path(
-					\sprintf(
-						'%s%s%s',
-						'mdp',
-						DIRECTORY_SEPARATOR,
-						'menu.php'
-					)
-				),
-			]
-		);
 	}
 }

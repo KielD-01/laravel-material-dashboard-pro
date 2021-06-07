@@ -24,33 +24,33 @@ if (isWindows) {
         var mainpanel = document.querySelector('.main-panel');
         var ps = new PerfectScrollbar(mainpanel);
     }
-    ;
+
     if ($(".sidebar").length != 0) {
         var sidebar = document.querySelector('.sidebar');
         var ps1 = new PerfectScrollbar(sidebar);
     }
-    ;
+
     if ($(".sidebar-wrapper").length != 0) {
         var sidebarwrapper = document.querySelector('.sidebar-wrapper');
         var ps2 = new PerfectScrollbar(sidebarwrapper);
     }
-    ;
+
     if ($(".dropdown-menu").length != 0) {
         var dropdownmenu = document.querySelector('.dropdown-menu');
         var ps3 = new PerfectScrollbar(dropdownmenu);
     }
-    ;
+
     if ($(".page-header").length != 0) {
         var pageheader = document.querySelector('.page-header');
         var ps4 = new PerfectScrollbar(pageheader);
     }
-    ;
+
 
     $('html').addClass('perfect-scrollbar-on');
 } else {
     $('html').addClass('perfect-scrollbar-off');
 }
-;
+
 
 
 var breakCards = true;
@@ -407,4 +407,4 @@ function debounce(func, wait, immediate) {
         }, wait);
         if (immediate && !timeout) func.apply(context, args);
     };
-};
+}

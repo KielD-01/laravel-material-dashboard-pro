@@ -19,16 +19,14 @@ class MaterialDashboardPro
 		$this->setMenu();
 	}
 
+	private function setMenu(): void
+	{
+		$this->menu = MenuBuilder::build();
+	}
+
 	public function hasUser(string $guard = null)
 	{
 		return $this->request->user($guard) ?? false;
-	}
-
-	public function setPageTitle(string $pageTitle): self
-	{
-		$this->pageTitle = $pageTitle;
-
-		return $this;
 	}
 
 	public function getPageTitle(): string
@@ -36,9 +34,11 @@ class MaterialDashboardPro
 		return $this->pageTitle;
 	}
 
-	private function setMenu(): void
+	public function setPageTitle(string $pageTitle): self
 	{
-		$this->menu = MenuBuilder::build();
+		$this->pageTitle = $pageTitle;
+
+		return $this;
 	}
 
 	public function getMenu(): array

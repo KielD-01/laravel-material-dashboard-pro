@@ -6,7 +6,7 @@ use KielD01\LaravelMaterialDashboardPro\Helpers\MenuItem; ?>
 <div class="collapse" id="{{ $item->getMenuItemHash() }}">
     <ul class="nav">
         @foreach($item->getChildren() as $child)
-            <li class="nav-item">
+            <li class="{{ $child->getClasses() }}">
                 <a class="nav-link" href="{{ $child->getLink() }}"
                    @if($child->hasChildren()) data-toggle="collapse" @endif>
                     @if($child->hasIcon() && !$child->isChild())

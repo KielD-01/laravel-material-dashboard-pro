@@ -21,7 +21,7 @@ use KielD01\LaravelMaterialDashboardPro\Helpers\MenuItem;
                 <li class="{{ $menuItem->getClasses() }}">
                     <a class="nav-link" href="{{ $menuItem->getLink() }}"
                        @if($menuItem->hasChildren()) data-toggle="collapse" @endif>
-                        @if($menuItem->hasIcon())
+                        @if($menuItem->hasIcon() && !$menuItem->isChild())
                             {!! $menuItem->getIcon()->buildIcon() !!}
                             <p> {{ $menuItem->getTitle() }} @if($menuItem->hasChildren()) <b class="caret"></b> @endif
                             </p>

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace KielD01\LaravelMaterialDashboardPro\Helpers;
 
-use Illuminate\Routing\Route;
 use Illuminate\Support\Collection;
 use KielD01\LaravelMaterialDashboardPro\Helpers\Icons\Icon;
 use Ramsey\Uuid\Uuid;
@@ -19,6 +18,7 @@ class MenuItem
 	private $children;
 	private $hash;
 	private $abbr;
+	private $isChild;
 	private $classes = [
 		'nav-item',
 	];
@@ -28,13 +28,15 @@ class MenuItem
 		string $menuItemLinkType,
 		string $link,
 		Icon $icon = null,
-		array $children = []
+		array $children = [],
+		bool $isChild = false
 	) {
 		$this->title = $title;
 		$this->menuItemLinkType = $menuItemLinkType;
 		$this->link = $link;
 		$this->icon = $icon;
 		$this->children = collect($children);
+		$this->isChild = $isChild;
 		$this->hash = Uuid::fromString(md5($this->title));
 
 		$this->setAbbr();
@@ -81,6 +83,11 @@ class MenuItem
 	public function getIcon(): ?Icon
 	{
 		return $this->icon;
+	}
+
+	public function isChild(): bool
+	{
+		return $this->isChild;
 	}
 
 	public function hasChildren(): bool

@@ -2,11 +2,13 @@
 
 declare(strict_types=1);
 
+use KielD01\LaravelMaterialDashboardPro\Helpers\MenuItemLinkType;
+
 return [
 	'module' => [
 		'routes' => [
-			'enabled' => false
-		]
+			'enabled' => false,
+		],
 	],
 	'fixed_plugin' => [
 		'enabled' => false,
@@ -30,7 +32,10 @@ return [
 		// Panels
 		'right_panel' => false,
 		'search_panel' => false,
-		'search_url' => '#',
+		'search_url' => [
+			'type' => MenuItemLinkType::ROUTE,
+			'route' => 'kield01.mdp.search',
+		],
 
 		'dashboard' => [
 			'enabled' => false,
@@ -49,4 +54,9 @@ return [
 			'route' => null,
 		],
 	],
+
+	// Only route support
+	'sign_in' => 'kield01.mdp.user.login',
+	'sign_up' => 'kield01.mdp.user.register',
+	'log_out' => null,
 ];

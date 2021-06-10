@@ -20,13 +20,13 @@
                 <li class="nav-item">
                     <a href="{{ route('kield01.mdp.user.register') }}" class="nav-link">
                         <i class="material-icons">person_add</i>
-                        Register
+                        {{ __('mdp.auth.sign_up') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('kield01.mdp.user.login') }}" class="nav-link">
                         <i class="material-icons">fingerprint</i>
-                        Login
+                        {{ __('mdp.auth.sign_in') }}
                     </a>
                 </li>
             </ul>

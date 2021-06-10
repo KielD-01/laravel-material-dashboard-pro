@@ -1,4 +1,4 @@
 @extends('mdp::layouts.user.auth-v1')
 @section('mdp::pageTitle')
-    Sign Up
+    {{ __('mdp.auth.sign_up') }}
 @endsection

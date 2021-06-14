@@ -10,28 +10,24 @@ return [
 		'title' => 'Dashboard',
 		'link' => [
 			'type' => MenuItemLinkType::ROUTE,
-			'route' => 'admin.dashboard',
+			'route' => 'kield01.mdp.dashboard.index',
 		],
 		'icon' => new MaterialIcon('dashboard'),
-		'children' => [
-			[
-				'title' => 'Test child 1',
-				'link' => [
-					'type' => MenuItemLinkType::ROUTE,
-					'route' => 'admin.dashboard.child_one',
-				],
-				'icon' => new MaterialIcon('dashboard'),
-				'children' => [
-					[
-						'title' => 'Test child 1 - 1',
-						'link' => [
-							'type' => MenuItemLinkType::ROUTE,
-							'route' => 'admin.dashboard.child_two_of_child_one',
-						],
-						'icon' => new MaterialIcon('dashboard'),
-					],
-				],
-			],
+	],
+	[
+		'title' => 'Sign In',
+		'link' => [
+			'type' => MenuItemLinkType::ROUTE,
+			'route' => 'kield01.mdp.user.login',
 		],
+		'icon' => new MaterialIcon('login'),
+	],
+	[
+		'title' => 'Sign Up',
+		'link' => [
+			'type' => MenuItemLinkType::ROUTE,
+			'route' => 'kield01.mdp.user.register',
+		],
+		'icon' => new MaterialIcon('fingerprint'),
 	],
 ];

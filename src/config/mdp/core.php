@@ -58,5 +58,9 @@ return [
 	// Only route support
 	'sign_in' => 'kield01.mdp.user.login',
 	'sign_up' => 'kield01.mdp.user.register',
+
+	'sign_in_form' => 'kield01.mdp.user.auth',
+	'sign_up_form' => 'kield01.mdp.user.sign_up',
+
 	'log_out' => null,
 ];

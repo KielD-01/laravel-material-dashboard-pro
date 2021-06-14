@@ -116,6 +116,14 @@ class CoreServiceProvider extends ServiceProvider
 				'mdp'.DIRECTORY_SEPARATOR.
 				'auth.php'
 			);
+
+			$this->loadRoutesFrom(
+				__DIR__.DIRECTORY_SEPARATOR.
+				'..'.DIRECTORY_SEPARATOR.
+				'routes'.DIRECTORY_SEPARATOR.
+				'mdp'.DIRECTORY_SEPARATOR.
+				'dashboard.php'
+			);
 		}
 	}
 }

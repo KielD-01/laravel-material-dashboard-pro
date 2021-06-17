@@ -73,8 +73,8 @@ class MenuItem
 		return $this->title;
 	}
 
-	private function setActive(): void
-	{
+	private function setActive()
+    {
 		/** @var Route $route */
 		$route = $this->request->route();
 
@@ -107,7 +107,7 @@ class MenuItem
 
 	public function getLink(): string
 	{
-		$uri = null;
+		$uri = '#';
 
 		switch ($this->hasChildren()) {
 			case true:

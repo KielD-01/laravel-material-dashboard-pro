@@ -19,7 +19,7 @@ php artisan vendor:publish --provider=KielD01\LaravelMaterialDashboardPro\Provid
 ## Versions compatibility
 |Laravel/PHP|5.5                |5.6                |5.7             |7.x               |8.x               |
 |-----------|------------------|------------------|------------------|------------------|------------------|
-|5.x        |:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|
-|6.x        |:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|:white_check_mark:|
-|7.x        |:white_check_mark:|:white_check_mark:|:white_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|8.x        |:white_check_mark:|:white_check_mark:|:white_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|5.x        |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|6.x        |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|7.x        |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:white_check_mark:|:white_check_mark:|
+|8.x        |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:white_check_mark:|:white_check_mark:|

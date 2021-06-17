@@ -22,7 +22,7 @@ class MenuBuilder
 				$menuItem['title'],
 				$menuItem['link']['type'],
 				$menuItem['link'][$menuItem['link']['type']],
-				$menuItem['icon'],
+				$isChild ? null : $menuItem['icon'],
 				self::processMenu($menuItem['children'] ?? [], true),
 				$isChild
 			);

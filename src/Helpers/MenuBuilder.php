@@ -8,26 +8,31 @@ use Illuminate\Support\Facades\Config;
 
 class MenuBuilder
 {
-	public static function build(): array
-	{
-		return self::processMenu(
-			Config::get('mdp.menu', [])
-		);
-	}
+    public static function build(): array
+    {
+        return self::processMenu(
+            Config::get('mdp.menu', [])
+        );
+    }
 
-	private static function processMenu(array $menuItems, bool $isChild = false): array
-	{
-		foreach ($menuItems as $index => $menuItem) {
-			$menuItems[$index] = new MenuItem(
-				$menuItem['title'],
-				$menuItem['link']['type'],
-				$menuItem['link'][$menuItem['link']['type']],
-				$isChild ? null : $menuItem['icon'],
-				self::processMenu($menuItem['children'] ?? [], true),
-				$isChild
-			);
-		}
+    private static function processMenu(array $menuItems, bool $isChild = false): array
+    {
+        foreach ($menuItems as $index => $menuItem) {
 
-		return $menuItems;
-	}
+            $link = array_key_exists('link', $menuItem) ?
+                $menuItem['link'] :
+                ['type' => MenuItemLinkType::URI, 'uri' => '#'];
+
+            $menuItems[$index] = new MenuItem(
+                $menuItem['title'],
+                $link['type'],
+                $link[$link['type']],
+                $isChild ? null : $menuItem['icon'],
+                self::processMenu($menuItem['children'] ?? [], true),
+                $isChild
+            );
+        }
+
+        return $menuItems;
+    }
 }

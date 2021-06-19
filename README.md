@@ -19,14 +19,42 @@ php artisan vendor:publish --provider=KielD01\LaravelMaterialDashboardPro\Provid
 ## Versions compatibility
 |Laravel/PHP|5.5                |5.6                |5.7             |7.x               |8.x               |
 |-----------|------------------|------------------|------------------|------------------|------------------|
-|5.x        |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|6.x        |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|7.x        |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:white_check_mark:|:white_check_mark:|
-|8.x        |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:white_check_mark:|:white_check_mark:|
+|5.x        |:x:|:x:|:x:|:x:|:x:|
+|6.x        |:x:|:x:|:x:|:x:|:x:|
+|7.x        |:x:|:x:|:x:|:white_check_mark:|:white_check_mark:|
+|8.x        |:x:|:x:|:x:|:white_check_mark:|:white_check_mark:|
 
 ## Menu Building
 Menu items has to be placed at the `config/mdp/menu.php`.   
 Here is an example of the possible menu structure:  
 ```php
+<?php
 
+declare(strict_types=1);
+
+return [
+    [
+        'title' => 'Dashboard',
+        'link' => [
+            'type' => MenuItemLinkType::ROUTE,
+            'route' => 'dashboard.index',
+        ],
+        'icon' => new MaterialIcon('dashboard'),
+    ],
+    [
+        'title' => 'Users',
+        'icon' => new FontAwesomeIcon('login'),
+        'children' => [
+            [
+                'title' => 'Create User',
+                'link' => [
+                    'type' => MenuItemLinkType::URI,
+                    'uri' => '/mdp/users/create',
+                ],
+            ]
+        ]
+    ],
+];
 ```
+
+Link type `MenuItemLinkType::ROUTE` usage strongly recommended instead of `MenuItemLinkType::URI`

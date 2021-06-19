@@ -21,8 +21,8 @@ php artisan vendor:publish --provider=KielD01\LaravelMaterialDashboardPro\Provid
 |-----------|------------------|------------------|------------------|------------------|------------------|
 |5.x        |:x:|:x:|:x:|:x:|:x:|
 |6.x        |:x:|:x:|:x:|:x:|:x:|
-|7.x        |:x:|:x:|:x:|:white_check_mark:|:white_check_mark:|
-|8.x        |:x:|:x:|:x:|:white_check_mark:|:white_check_mark:|
+|7.x        |:x:|:x:|:x:|:heavy_check_mark:|:heavy_check_mark:|
+|8.x        |:x:|:x:|:x:|:heavy_check_mark:|:heavy_check_mark:|
 
 ## Menu Building
 Menu items has to be placed at the `config/mdp/menu.php`.   

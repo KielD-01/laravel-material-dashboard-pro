@@ -63,7 +63,7 @@ class MenuItem
 
         $abbrString = implode('', $abbrArray);
         $this->abbr = preg_replace(
-            '/([^0-9A-Za-z])/',
+            '/([^0-9A-Za-zА-Яа-я])/u',
             '',
             $abbrString
         );

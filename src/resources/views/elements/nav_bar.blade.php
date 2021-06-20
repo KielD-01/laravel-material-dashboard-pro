@@ -7,7 +7,7 @@
                     <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
                 </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">{{ $mdp->getPageTitle() }}</a>
+            <a class="navbar-brand" href="javascript:void(0)">@yield('mdp::pageTitle')</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -29,10 +29,10 @@
                     </div>
                 </form>
             @endif
-            @if(config('mdp.core.nav_bar.dashboard'))
+            @if(config('mdp.core.nav_bar.dashboard.enabled'))
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">
+                        <a class="nav-link" href="{{ route(config('mdp.core.nav_bar.dashboard.route')) }}">
                             <i class="material-icons">dashboard</i>
                             <p class="d-lg-none d-md-block">
                                 {{ __('mdp.nav_bar.dashboard') }}

@@ -27,7 +27,7 @@
                 @endif
                 @if(config('mdp.core.sign_in_enabled'))
                     <li class="nav-item">
-                        <a href="{{ route('mdp.core.sign_in') }}" class="nav-link">
+                        <a href="{{ route(config('mdp.core.sign_in')) }}" class="nav-link">
                             <i class="material-icons">fingerprint</i>
                             {{ __('mdp.auth.sign_in') }}
                         </a>

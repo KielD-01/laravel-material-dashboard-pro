@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace KielD01\LaravelMaterialDashboardPro;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Contracts\Container\CircularDependencyException;
 use Illuminate\Http\Request;
 use KielD01\LaravelMaterialDashboardPro\Helpers\MenuBuilder;
 
@@ -24,9 +26,13 @@ class MaterialDashboardPro
 		return \sprintf('https://picsum.photos/2880/1920?blur=%d', 2);
 	}
 
+	/**
+	 * @throws CircularDependencyException
+	 * @throws BindingResolutionException
+	 */
 	private function setMenu(): void
 	{
-		$this->menu = MenuBuilder::build();
+		$this->menu = resolve(MenuBuilder::class)->build();
 	}
 
 	public function hasUser(string $guard = null)

@@ -9,9 +9,9 @@ abstract class MenuVisibilityResolver
 	/**
 	 * Check, if user can see specific menu
 	 *
-	 * @param string|array $roles
+	 * @param $valueOrValues
 	 *
 	 * @return bool
 	 */
-	abstract public function resolve($roles): bool;
+	abstract public function resolve($valueOrValues): bool;
 }

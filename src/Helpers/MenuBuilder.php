@@ -10,20 +10,20 @@ use KielD01\LaravelMaterialDashboardPro\Helpers\Icons\MaterialIcon;
 
 class MenuBuilder
 {
-	public static function build(): array
+	public function build(): array
 	{
-		return self::processMenu(
+		return $this->processMenu(
 			Config::get('mdp.menu', [])
 		);
 	}
 
-	private static function processMenu(array $menuItems, bool $isChild = false): array
+	private function processMenu(array $menuItems, bool $isChild = false): array
 	{
 		/** @var MenuVisibilityResolver $menuResolver */
 		$menuResolver = resolve(Config::get('mdp.core.menu_permission_resolver'));
 
 		foreach ($menuItems as $index => $menuItem) {
-			if (!array_key_exists('can', $menuItem) || ($menuResolver && $menuResolver->resolve($menuItem['can']))) {
+			if (!array_key_exists('can', $menuItem) || $menuResolver->resolve($menuItem['can'])) {
 				$link = array_key_exists('link', $menuItem) ?
 					$menuItem['link'] :
 					['type' => MenuItemLinkType::URI, 'uri' => '#'];
@@ -43,9 +43,11 @@ class MenuBuilder
 					$link['type'],
 					$link[$link['type']],
 					$isChild && !$hasIcon ? null : new $iconClass($icon),
-					self::processMenu($menuItem['children'] ?? [], true),
+					$this->processMenu($menuItem['children'] ?? [], true),
 					$isChild
 				);
+			} else {
+				unset($menuItems[$index]);
 			}
 		}
 

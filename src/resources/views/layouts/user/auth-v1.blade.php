@@ -6,7 +6,7 @@
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
     <div class="container">
         <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">@yield('mdp::pageTitle')</a>
+            <a class="navbar-brand" href="javascript:void(0)">{{ $mdp->getPageTitle() }}</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -17,18 +17,23 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="{{ route('kield01.mdp.user.register') }}" class="nav-link">
-                        <i class="material-icons">person_add</i>
-                        {{ __('mdp.auth.sign_up') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('kield01.mdp.user.login') }}" class="nav-link">
-                        <i class="material-icons">fingerprint</i>
-                        {{ __('mdp.auth.sign_in') }}
-                    </a>
-                </li>
+                @if(config('mdp.core.sign_up_enabled'))
+                    <li class="nav-item">
+                        <a href="{{ route(config('mdp.core.sign_up')) }}" class="nav-link">
+                            <i class="material-icons">person_add</i>
+                            {{ __('mdp.auth.sign_up') }}
+                        </a>
+                    </li>
+                @endif
+                @if(config('mdp.core.sign_in_enabled'))
+                    <li class="nav-item">
+                        <a href="{{ route('mdp.core.sign_in') }}" class="nav-link">
+                            <i class="material-icons">fingerprint</i>
+                            {{ __('mdp.auth.sign_in') }}
+                        </a>
+                    </li>
+                @endif
+
             </ul>
         </div>
     </div>

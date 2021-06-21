@@ -65,7 +65,7 @@
 
                                 @if(config('mdp.core.nav_bar.log_out.enabled'))
                                     <a class="dropdown-item"
-                                       href="{{ route('mdp.nav_bar.log_out.route') }}">{{ __('mdp.nav_bar.log_out') }}</a>
+                                       href="{{ route(config('mdp.core.log_out')) }}">{{ __('mdp.nav_bar.log_out') }}</a>
                                 @endif
                             </div>
                         </li>

@@ -56,6 +56,9 @@ return [
 	],
 
 	// Only route support
+	'sign_in_enabled' => true,
+	'sign_up_enabled' => false,
+
 	'sign_in' => 'kield01.mdp.user.login',
 	'sign_up' => 'kield01.mdp.user.register',
 

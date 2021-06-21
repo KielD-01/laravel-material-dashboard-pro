@@ -97,13 +97,8 @@ class CoreServiceProvider extends ServiceProvider
 
 	public function registerViewComposers(Factory $view): void
 	{
-		$view->composer(
-			[
-				'mdp::layouts.main',
-				'mdp::layouts.user.auth-v1',
-			],
-			MdpViewComposer::class
-		);
+		$view->composer('mdp::layouts.user.auth-v1', MdpViewComposer::class);
+		$view->composer('mdp::layouts.main', MdpViewComposer::class);
 	}
 
 	public function registerRoutes(): void

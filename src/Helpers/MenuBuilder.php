@@ -19,29 +19,34 @@ class MenuBuilder
 
 	private static function processMenu(array $menuItems, bool $isChild = false): array
 	{
+		/** @var MenuVisibilityResolver $menuResolver */
+		$menuResolver = resolve(Config::get('mdp.core.menu_permission_resolver'));
+
 		foreach ($menuItems as $index => $menuItem) {
-			$link = array_key_exists('link', $menuItem) ?
-				$menuItem['link'] :
-				['type' => MenuItemLinkType::URI, 'uri' => '#'];
+			if (!array_key_exists('can', $menuItem) || ($menuResolver && $menuResolver->resolve($menuItem['can']))) {
+				$link = array_key_exists('link', $menuItem) ?
+					$menuItem['link'] :
+					['type' => MenuItemLinkType::URI, 'uri' => '#'];
 
-			$hasIcon = array_key_exists('icon', $menuItem);
+				$hasIcon = array_key_exists('icon', $menuItem);
 
-			/** @var FontAwesomeIcon|MaterialIcon $iconClass */
-			$iconClass = null;
-			$icon = null;
+				/** @var FontAwesomeIcon|MaterialIcon $iconClass */
+				$iconClass = null;
+				$icon = null;
 
-			if ($hasIcon) {
-				[$iconClass, $icon] = $menuItem['icon'];
+				if ($hasIcon) {
+					[$iconClass, $icon] = $menuItem['icon'];
+				}
+
+				$menuItems[$index] = new MenuItem(
+					$menuItem['title'],
+					$link['type'],
+					$link[$link['type']],
+					$isChild && !$hasIcon ? null : new $iconClass($icon),
+					self::processMenu($menuItem['children'] ?? [], true),
+					$isChild
+				);
 			}
-
-			$menuItems[$index] = new MenuItem(
-				$menuItem['title'],
-				$link['type'],
-				$link[$link['type']],
-				$isChild && !$hasIcon ? null : new $iconClass($icon),
-				self::processMenu($menuItem['children'] ?? [], true),
-				$isChild
-			);
 		}
 
 		return $menuItems;

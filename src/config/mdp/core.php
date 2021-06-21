@@ -2,9 +2,12 @@
 
 declare(strict_types=1);
 
+use KielD01\LaravelMaterialDashboardPro\Helpers\DemoMenuVisibilityResolver;
 use KielD01\LaravelMaterialDashboardPro\Helpers\MenuItemLinkType;
 
 return [
+	'menu_permission_resolver' => DemoMenuVisibilityResolver::class,
+
 	'module' => [
 		'routes' => [
 			'enabled' => false,

@@ -54,14 +54,18 @@ class MenuItem
 	private function setAbbr()
 	{
 		$words = explode(' ', $this->getTitle());
+
 		$abbrArray = array_map(
 			static function ($word) {
-				return mb_strtoupper($word[0]);
+				$array = mb_str_split($word);
+
+				return current($array);
 			},
 			$words
 		);
 
-		$abbrString = implode('', $abbrArray);
+		$abbrString = mb_strtoupper(implode('', $abbrArray));
+
 		$this->abbr = preg_replace(
 			'/([^0-9A-Za-zА-Яа-я])/u',
 			'',

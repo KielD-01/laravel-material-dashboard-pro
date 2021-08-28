@@ -29,10 +29,10 @@
                     </div>
                 </form>
             @endif
-            @if(config('mdp.core.nav_bar.dashboard'))
+            @if(config('mdp.core.nav_bar.dashboard.enabled'))
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">
+                        <a class="nav-link" href="{{ route(config('mdp.core.nav_bar.dashboard.route')) }}">
                             <i class="material-icons">dashboard</i>
                             <p class="d-lg-none d-md-block">
                                 {{ __('mdp.nav_bar.dashboard') }}
@@ -65,7 +65,7 @@
 
                                 @if(config('mdp.core.nav_bar.log_out.enabled'))
                                     <a class="dropdown-item"
-                                       href="{{ route('mdp.nav_bar.log_out.route') }}">{{ __('mdp.nav_bar.log_out') }}</a>
+                                       href="{{ route(config('mdp.core.log_out')) }}">{{ __('mdp.nav_bar.log_out') }}</a>
                                 @endif
                             </div>
                         </li>

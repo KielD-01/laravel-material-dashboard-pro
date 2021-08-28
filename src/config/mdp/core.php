@@ -2,9 +2,12 @@
 
 declare(strict_types=1);
 
+use KielD01\LaravelMaterialDashboardPro\Helpers\DemoMenuVisibilityResolver;
 use KielD01\LaravelMaterialDashboardPro\Helpers\MenuItemLinkType;
 
 return [
+	'menu_permission_resolver' => DemoMenuVisibilityResolver::class,
+
 	'module' => [
 		'routes' => [
 			'enabled' => false,
@@ -56,6 +59,9 @@ return [
 	],
 
 	// Only route support
+	'sign_in_enabled' => true,
+	'sign_up_enabled' => false,
+
 	'sign_in' => 'kield01.mdp.user.login',
 	'sign_up' => 'kield01.mdp.user.register',
 

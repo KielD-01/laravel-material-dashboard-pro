@@ -13,11 +13,11 @@ return [
             'type' => MenuItemLinkType::ROUTE,
             'route' => 'dashboard.index',
         ],
-        'icon' => new MaterialIcon('dashboard'),
+        'icon' => [MaterialIcon::class, 'dashboard'],
     ],
     [
         'title' => 'Users',
-        'icon' => new FontAwesomeIcon('login'),
+        'icon' => [FontAwesomeIcon::class, 'login'],
         'children' => [
             [
                 'title' => 'Create User',

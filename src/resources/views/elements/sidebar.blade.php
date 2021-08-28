@@ -15,7 +15,7 @@ use KielD01\LaravelMaterialDashboardPro\Helpers\MenuItem;
             {{ config('mdp.core.site.name') }}
         </a></div>
     <div class="sidebar-wrapper">
-        @includeWhen($mdp->hasUser(), 'mdp::elements.sidebar.user')
+        @includeWhen($mdp->hasUser() && config('mdp.core.user_bar.enabled', false), 'mdp::elements.sidebar.user')
         <ul class="nav">
             @foreach($mdp->getMenu() as $menuItem)
                 <li class="{{ $menuItem->getClasses() }}">

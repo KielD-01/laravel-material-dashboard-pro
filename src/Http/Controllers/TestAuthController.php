@@ -18,11 +18,13 @@ class TestAuthController extends Controller
 
     public function auth(Request $request): RedirectResponse
     {
-        $credentials = $request->only(['email', 'password']);
-        [$email, $password] = $credentials;
+        $credentials = [
+            'email' => $request->post('email'),
+            'password' => $request->post('password')
+        ];
 
-        $emailCheck = Str::is('john.doe@example.com', $email);
-        $passwordCheck = Str::is('adminTest!123', $password);
+        $emailCheck = Str::is('john.doe@example.com', $credentials['email']);
+        $passwordCheck = Str::is('adminTest!123', $credentials['password']);
         $checksPassed = $emailCheck && $passwordCheck;
 
         if ($checksPassed) {

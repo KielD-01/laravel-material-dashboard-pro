@@ -21,7 +21,7 @@
                     <li class="nav-item">
                         <a href="{{ route(config('mdp.core.sign_up')) }}" class="nav-link">
                             <i class="material-icons">person_add</i>
-                            {{ __('mdp.auth.sign_up') }}
+                            @lang('mdp.layouts.user.auth-v1.sign_up')
                         </a>
                     </li>
                 @endif
@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <a href="{{ route(config('mdp.core.sign_in')) }}" class="nav-link">
                             <i class="material-icons">fingerprint</i>
-                            {{ __('mdp.auth.sign_in') }}
+                            @lang('mdp.layouts.user.auth-v1.sign_in')
                         </a>
                     </li>
                 @endif

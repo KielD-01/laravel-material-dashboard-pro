@@ -10,7 +10,7 @@
                 @csrf
                 <div class="card card-login">
                     <div class="card-header card-header-rose text-center">
-                        <h4 class="card-title">Login</h4>
+                        <h4 class="card-title">@lang('mdp.forms.user.labels.sign_in')</h4>
                     </div>
                     <div class="card-body ">
                         <span class="bmd-form-group">
@@ -20,7 +20,8 @@
                                         <i class="material-icons">email</i>
                                     </span>
                                 </div>
-                                <input type="email" value="{{ $email ?? '' }}" class="form-control" placeholder="Email...">
+                                <input type="email" value="{{ old('email') }}" class="form-control"
+                                       placeholder="@lang('mdp.forms.user.sign_in.placeholders.email')">
                             </div>
                         </span>
 
@@ -31,12 +32,15 @@
                                         <i class="material-icons">lock_outline</i>
                                     </span>
                                 </div>
-                                <input type="password" class="form-control" placeholder="Password...">
+                                <input type="password" class="form-control"
+                                       placeholder="@lang('mdp.forms.user.sign_in.placeholders.password')">
                             </div>
                         </span>
                     </div>
                     <div class="card-footer justify-content-center">
-                        <a href="#" class="btn btn-rose btn-link btn-lg">Lets Go</a>
+                        <button class="btn btn-primary btn-link" type="submit">
+                            @lang('mdp.forms.user.labels.submit')
+                        </button>
                     </div>
                 </div>
             </form>

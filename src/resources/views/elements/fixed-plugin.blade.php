@@ -4,7 +4,7 @@
             <i class="fa fa-cog fa-2x"> </i>
         </a>
         <ul class="dropdown-menu">
-            <li class="header-title"> Sidebar Filters</li>
+            <li class="header-title"> @lang('mdp.labels.fixed-plugin.sidebar_filter')</li>
             <li class="adjustments-line">
                 <a href="javascript:void(0)" class="switch-trigger active-color">
                     <div class="badge-colors ml-auto mr-auto">
@@ -18,7 +18,7 @@
                     <div class="clearfix"></div>
                 </a>
             </li>
-            <li class="header-title">Sidebar Background</li>
+            <li class="header-title"> @lang('mdp.labels.fixed-plugin.sidebar_background')</li>
             <li class="adjustments-line">
                 <a href="javascript:void(0)" class="switch-trigger background-color">
                     <div class="ml-auto mr-auto">
@@ -32,7 +32,7 @@
             @if (!empty(config('mdp.core.fixed_plugin.images', [])))
                 <li class="adjustments-line">
                     <a href="javascript:void(0)" class="switch-trigger">
-                        <p>Sidebar Images</p>
+                        <p> @lang('mdp.labels.fixed-plugin.sidebar_images')</p>
                         <label class="switch-mini ml-auto">
                             <div class="togglebutton switch-sidebar-image">
                                 <label>
@@ -44,7 +44,7 @@
                         <div class="clearfix"></div>
                     </a>
                 </li>
-                <li class="header-title">Images</li>
+                <li class="header-title"> @lang('mdp.labels.fixed-plugin.images')</li>
                 @foreach(config('mdp.core.fixed_plugin.images') as $image)
                     <li>
                         <a class="img-holder switch-trigger" href="javascript:void(0)">

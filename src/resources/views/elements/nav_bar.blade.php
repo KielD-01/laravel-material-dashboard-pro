@@ -11,7 +11,7 @@
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
                 aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only"> @lang('mdp.nav_bar.labels.toggle_nav')</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -21,7 +21,7 @@
                 <form class="navbar-form">
                     <div class="input-group no-border">
                         <input type="text" class="form-control"
-                               placeholder="{{ __('mdp.nav_bar.search.placeholder') }}">
+                               placeholder="@lang('mdp.nav_bar.search.placeholder')">
                         <button type="submit" class="btn btn-white btn-round btn-just-icon">
                             <i class="material-icons">search</i>
                             <div class="ripple-container"></div>
@@ -35,7 +35,7 @@
                         <a class="nav-link" href="{{ route(config('mdp.core.nav_bar.dashboard.route')) }}">
                             <i class="material-icons">dashboard</i>
                             <p class="d-lg-none d-md-block">
-                                {{ __('mdp.nav_bar.dashboard') }}
+                                @lang('mdp.labels.nav_bar.dashboard')
                             </p>
                         </a>
                     </li>
@@ -48,24 +48,24 @@
                                aria-haspopup="true" aria-expanded="false">
                                 <i class="material-icons">person</i>
                                 <p class="d-lg-none d-md-block">
-                                    {{ __('mdp.nav_bar.account') }}
+                                    @lang('mdp.labels.nav_bar.account')
                                 </p>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                                 @if(config('mdp.core.nav_bar.profile.enabled'))
                                     <a class="dropdown-item"
-                                       href="{{ route('mdp.nav_bar.profile.route') }}">{{ __('mdp.nav_bar.profile') }}</a>
+                                       href="{{ route('mdp.nav_bar.profile.route') }}">@lang('mdp.labels.nav_bar.profile')</a>
                                 @endif
                                 @if(config('mdp.core.nav_bar.settings.enabled'))
                                     <a class="dropdown-item"
-                                       href="{{ route('mdp.nav_bar.settings.route') }}">{{ __('mdp.nav_bar.settings') }}</a>
+                                       href="{{ route('mdp.nav_bar.settings.route') }}">@lang('mdp.labels.nav_bar.settings')</a>
                                 @endif
 
                                 <div class="dropdown-divider"></div>
 
                                 @if(config('mdp.core.nav_bar.log_out.enabled'))
                                     <a class="dropdown-item"
-                                       href="{{ route(config('mdp.core.log_out')) }}">{{ __('mdp.nav_bar.log_out') }}</a>
+                                       href="{{ route(config('mdp.core.log_out')) }}">@lang('mdp.labels.nav_bar.log_out')</a>
                                 @endif
                             </div>
                         </li>

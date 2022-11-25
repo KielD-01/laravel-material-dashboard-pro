@@ -6,11 +6,11 @@ namespace KielD01\LaravelMaterialDashboardPro\Helpers;
 
 class DemoMenuVisibilityResolver extends MenuVisibilityResolver
 {
-	/**
-	 * @inheritDoc
-	 */
-	public function resolve($roles): bool
-	{
-		return in_array('sudo', $roles, true);
-	}
+    /**
+     * @inheritDoc
+     */
+    public function resolve(mixed $valueOrValues): bool
+    {
+        return in_array('sudo', $valueOrValues, true);
+    }
 }

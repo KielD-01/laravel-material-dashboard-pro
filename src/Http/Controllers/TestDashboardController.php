@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace KielD01\LaravelMaterialDashboardPro\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 
 class TestDashboardController extends Controller
 {
-	public function dashboard()
+	public function dashboard(): string
 	{
-		return view('mdp::pages.dashboard.index');
+		return view('mdp::pages.dashboard.index')->render();
 	}
 }

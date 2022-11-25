@@ -9,16 +9,15 @@ use KielD01\LaravelMaterialDashboardPro\MaterialDashboardPro;
 
 class MdpViewComposer
 {
-	/** @var MaterialDashboardPro */
-	private $mdp;
+    private MaterialDashboardPro $mdp;
 
-	public function __construct(MaterialDashboardPro $mdp)
-	{
-		$this->mdp = $mdp;
-	}
+    public function __construct(MaterialDashboardPro $mdp)
+    {
+        $this->mdp = $mdp;
+    }
 
-	public function compose(View $view): void
-	{
-		$view->with('mdp', $this->mdp);
-	}
+    public function compose(View $view): void
+    {
+        $view->with('mdp', $this->mdp);
+    }
 }

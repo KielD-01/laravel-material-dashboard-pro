@@ -12,7 +12,7 @@ Route::name('kield01.mdp.dashboard.')
 			Route::prefix('dashboard')
 				->group(
 					static function () {
-						Route::any('', [TestDashboardController::class, 'dashboard'])->name('index');
+						Route::get('', [TestDashboardController::class, 'dashboard'])->name('index');
 					}
 				);
 		}

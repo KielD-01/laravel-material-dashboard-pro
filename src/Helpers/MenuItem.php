@@ -22,7 +22,7 @@ class MenuItem
     private string $menuItemLinkType;
     private string $link;
     private string $baseLink;
-    private Icon $icon;
+    private ?Icon $icon;
     private Collection $children;
     private UuidInterface $hash;
     private string $abbr;
@@ -35,7 +35,7 @@ class MenuItem
         string $title,
         string $menuItemLinkType,
         string $link,
-        Icon   $icon = null,
+        ?Icon  $icon = null,
         array  $children = [],
         bool   $isChild = false
     )

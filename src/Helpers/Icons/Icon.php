@@ -6,8 +6,8 @@ namespace KielD01\LaravelMaterialDashboardPro\Helpers\Icons;
 
 abstract class Icon
 {
-	private $icon;
-	private $icons = [];
+	private string $icon;
+	private array $icons = [];
 
 	public function __construct(string $icon)
 	{

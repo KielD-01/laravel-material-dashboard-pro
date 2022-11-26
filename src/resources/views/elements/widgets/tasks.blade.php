@@ -11,7 +11,7 @@
     </div>
     <div class="card-body">
         <div class="tab-content">
-            <div class="tab-pane {{ $active }}" id="{{ $type }}">
+            <div class="tab-pane" id="{{ $id }}">
                 {{ $slot }}
             </div>
         </div>

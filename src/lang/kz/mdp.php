@@ -15,6 +15,9 @@ return [
             'profile' => 'Профиль',
             'settings' => 'Параметрлер',
             'log_out' => 'Жүйеден шығу',
+        ],
+        'auth' => [
+            'sign_in' => 'Кіру'
         ]
     ],
     'layouts' => [

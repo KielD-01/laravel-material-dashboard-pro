@@ -15,6 +15,9 @@ return [
             'profile' => 'Profile',
             'settings' => 'Settings',
             'log_out' => 'Log Out',
+        ],
+        'auth' => [
+            'sign_in' => 'Sign In'
         ]
     ],
     'layouts' => [

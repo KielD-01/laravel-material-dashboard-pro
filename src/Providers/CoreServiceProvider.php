@@ -145,6 +145,6 @@ class CoreServiceProvider extends ServiceProvider
             sprintf('%s/%s/mdp.php', $locales, 'ua') => lang_path(sprintf('%s/mdp.php', 'ua')),
             sprintf('%s/%s/mdp.php', $locales, 'en') => lang_path(sprintf('%s/mdp.php', 'en')),
             sprintf('%s/%s/mdp.php', $locales, 'kz') => lang_path(sprintf('%s/mdp.php', 'kz')),
-        ]);
+        ], 'locales');
     }
 }

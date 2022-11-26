@@ -3,37 +3,37 @@
 return [
     'labels' => [
         'fixed-plugin' => [
-            'sidebar_filter' => 'Sidebar Filter',
-            'sidebar_background' => 'Sidebar Background',
-            'images' => 'Images',
+            'sidebar_filter' => 'Бүйірлік тақта сүзгісі',
+            'sidebar_background' => 'Бүйірлік тақтаның фоны',
+            'images' => 'Суреттер',
         ],
         'nav_bar' => [
-            'toggle_nav' => 'Toggle Navigation',
+            'toggle_nav' => 'Навигацияны ауыстыру',
             'search' => [
-                'placeholder' => 'Search...',
+                'placeholder' => 'Іздеу...',
             ],
-            'profile' => 'Profile',
-            'settings' => 'Settings',
-            'log_out' => 'Log Out',
+            'profile' => 'Профиль',
+            'settings' => 'Параметрлер',
+            'log_out' => 'Жүйеден шығу',
         ]
     ],
     'layouts' => [
         'user' => [
             'auth-v1' => [
-                'sign_up' => 'Sign Up',
-                'sign_in' => 'Sign In',
+                'sign_up' => 'Тіркелу',
+                'sign_in' => 'Кіру',
             ]
         ]
     ],
     'forms' => [
         'user' => [
             'labels' => [
-                'sign_in' => 'Login',
-                'submit' => 'Let\'s Go'
+                'sign_in' => 'Логин',
+                'submit' => 'Жүйеге кіру'
             ],
             'sign_in' => [
                 'placeholders' => [
-                    'email' => 'ex. john.doe@hotmail.com',
+                    'email' => 'john.doe@hotmail.com',
                     'password' => '********'
                 ]
             ]

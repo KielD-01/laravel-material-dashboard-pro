@@ -8,10 +8,13 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Factory;
 use KielD01\LaravelMaterialDashboardPro\Providers\Composers\MdpViewComposer;
+use KielD01\LaravelMaterialDashboardPro\View\Components\ComponentRegistrar;
 use function sprintf;
 
 class CoreServiceProvider extends ServiceProvider
 {
+    public const VIEWS_NAMESPACE = 'mdp';
+
     public function register(): void
     {
     }
@@ -24,6 +27,17 @@ class CoreServiceProvider extends ServiceProvider
         $this->registerViewComposers($view);
         $this->registerRoutes();
         $this->registerLocales();
+        $this->registerComponents();
+    }
+
+    /**
+     * @return void
+     */
+    public function registerComponents(): void
+    {
+        /** @var ComponentRegistrar $registrar */
+        $registrar = resolve(ComponentRegistrar::class);
+        $registrar->register();
     }
 
     public function registerPublishableConfigs(): void
@@ -91,7 +105,7 @@ class CoreServiceProvider extends ServiceProvider
             '..' . DIRECTORY_SEPARATOR .
             'resources' . DIRECTORY_SEPARATOR .
             'views',
-            'mdp'
+            static::VIEWS_NAMESPACE
         );
     }
 

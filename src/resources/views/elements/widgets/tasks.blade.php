@@ -12,7 +12,7 @@
     <div class="card-body">
         <div class="tab-content">
             <div class="tab-pane" id="{{ $id }}">
-                {{ $slot }}
+                {!! $slot !!}
             </div>
         </div>
     </div>

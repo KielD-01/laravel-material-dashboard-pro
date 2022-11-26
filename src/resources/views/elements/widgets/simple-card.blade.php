@@ -6,6 +6,6 @@
         </div>
     </div>
     <div class="card-body table-responsive">
-        {{ $slot }}
+        {!! $slot !!}
     </div>
 </div>

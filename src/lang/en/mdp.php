@@ -17,7 +17,8 @@ return [
             'log_out' => 'Log Out',
         ],
         'auth' => [
-            'sign_in' => 'Sign In'
+            'sign_up' => 'Sign Up',
+            'sign_in' => 'Sign In',
         ]
     ],
     'layouts' => [

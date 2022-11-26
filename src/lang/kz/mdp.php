@@ -17,7 +17,8 @@ return [
             'log_out' => 'Жүйеден шығу',
         ],
         'auth' => [
-            'sign_in' => 'Кіру'
+            'sign_up' => 'Тіркелу',
+            'sign_in' => 'Кіру',
         ]
     ],
     'layouts' => [

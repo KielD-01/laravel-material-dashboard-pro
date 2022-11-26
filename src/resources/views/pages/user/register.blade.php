@@ -1,6 +1,6 @@
 @extends('mdp::layouts.user.auth-v1')
 @section('mdp::pageTitle')
-    {{ __('mdp.auth.sign_in') }}
+    {{ __('mdp.labels.auth.sign_up') }}
 @endsection
 
 @section('mdp::content')

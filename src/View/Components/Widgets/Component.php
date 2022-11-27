@@ -8,6 +8,6 @@ abstract class Component extends \Illuminate\View\Component
 
     public static function getComponentName(): ?string
     {
-        return self::$name;
+        return static::$name;
     }
 }

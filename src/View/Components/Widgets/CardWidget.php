@@ -6,11 +6,14 @@ use KielD01\LaravelMaterialDashboardPro\Providers\CoreServiceProvider;
 
 class CardWidget extends Component
 {
-
     protected static ?string $name = 'card-widget';
+    public string $title;
+    public string $description;
 
-    public function __construct(public string $title, public string $description)
+    public function __construct($title, $description)
     {
+        $this->title = $title;
+        $this->description = $description;
     }
 
     /**

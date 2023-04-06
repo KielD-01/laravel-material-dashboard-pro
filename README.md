@@ -1,4 +1,4 @@
-# Laravel Material Dashboard PRO
+# Material Dashboard PRO for Laravel
 
 [![Build Status](https://scrutinizer-ci.com/g/KielD-01/laravel-material-dashboard-pro/badges/build.png?b=main)](https://scrutinizer-ci.com/g/KielD-01/laravel-material-dashboard-pro/build-status/main)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/KielD-01/laravel-material-dashboard-pro/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/KielD-01/laravel-material-dashboard-pro/?branch=main)

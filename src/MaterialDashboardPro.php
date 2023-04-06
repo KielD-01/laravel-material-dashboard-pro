@@ -15,6 +15,8 @@ class MaterialDashboardPro
     private string $pageTitle = 'Page';
     private $user = null;
 
+    private string $backgroundUrl = 'https://picsum.photos/2880/1920?blur=2';
+
     /**
      * @param Request $request
      */
@@ -23,11 +25,12 @@ class MaterialDashboardPro
         $this->request = $request;
         $this->setMenu();
         $this->setUser($this->request->user());
+        $this->setBackgroundUrl();
     }
 
     public function getRandomBackgroundUrl(): string
     {
-        return \sprintf('https://picsum.photos/2880/1920?blur=%d', 2);
+        return $this->backgroundUrl;
     }
 
     /**
@@ -47,6 +50,13 @@ class MaterialDashboardPro
     private function setUser(?Model $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function setBackgroundUrl(): static
+    {
+        $this->backgroundUrl = config('mdp.core.static.login_image', $this->backgroundUrl);
 
         return $this;
     }

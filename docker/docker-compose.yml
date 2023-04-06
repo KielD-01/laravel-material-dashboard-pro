@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  mdp:
+    container_name: mdp
+    image: devilbox/php-fpm:8.0-work
+    volumes:
+      - ../:/material-dashboard-pro
+    working_dir: /material-dashboard-pro
+    tty: true

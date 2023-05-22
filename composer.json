@@ -9,7 +9,6 @@
 		}
 	],
 	"require": {
-		"php": "8.*",
 		"laravel/framework": "*"
 	},
 	"autoload": {

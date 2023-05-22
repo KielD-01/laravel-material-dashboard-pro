@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8"/>
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('/assets/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" href="{{ asset('/assets/img/favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>
         {{ sprintf('%s | %s', config('mdp.core.site.name'), $mdp->getPageTitle()) }}
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
     <!-- Core Style -->
-    <link href="{{ asset('/assets/mdp/css/material-dashboard.css?v=2.2.2') }}" rel="stylesheet"/>
+    <link href="/assets/mdp/css/material-dashboard.css?v=2.2.2" rel="stylesheet"/>
 
     @stack('mdp::layout_css')
 </head>

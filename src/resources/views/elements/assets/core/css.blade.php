@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
 <!-- Core Style -->
-<link href="{{ asset('/assets/mdp/css/material-dashboard.css?v=2.2.2') }}" rel="stylesheet"/>
+<link href="/assets/mdp/css/material-dashboard.css?v=2.2.2" rel="stylesheet"/>
 
 @stack('mdp::layout_css')
 @yield('mdp::css')
